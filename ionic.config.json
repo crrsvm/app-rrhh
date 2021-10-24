@@ -1,0 +1,7 @@
+{
+  "name": "app-rrhh",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
