@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPage implements OnInit {
 
-  constructor() { }
+  modeloUsuario: string = '';
+  modeloContrasena: string = '';
+
+  constructor() { 
+    console.log('Página Login iniciada');
+  }
 
   ngOnInit() {
   }
 
+  validarCredenciales(){
+    console.log(this.modeloUsuario);
+    console.log(this.modeloContrasena);
+  }
 }
