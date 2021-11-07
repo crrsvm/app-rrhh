@@ -1,15 +1,37 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { DbService } from './services/db.service';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/login',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  {
+    path: 'login',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
     path: 'principal',
-    loadChildren: () => import('./pages/principal/principal.module').then( m => m.PrincipalPageModule)
+    redirectTo: 'principal',
+    pathMatch: 'full'
+  },
+  {
+    path: 'pantalla-intro',
+    redirectTo: 'pantalla-intro',
+    pathMatch: 'full'
+  },
+  {
+    path: '**',
+    redirectTo: 'e404',
+    pathMatch: 'full'
+  },
+  {
+    path: 'principal',
+    loadChildren: () => import('./pages/principal/principal.module').then( m => m.PrincipalPageModule),
+    canActivate: [DbService]
   },
   {
     path: 'login',
@@ -18,6 +40,10 @@ const routes: Routes = [
   {
     path: 'pantalla-intro',
     loadChildren: () => import('./pages/pantalla-intro/pantalla-intro.module').then( m => m.PantallaIntroPageModule)
+  },
+  {
+    path: 'e404',
+    loadChildren: () => import('./pages/e404/e404.module').then( m => m.E404PageModule)
   },
 ];
 
